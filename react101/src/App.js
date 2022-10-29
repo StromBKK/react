@@ -1,21 +1,52 @@
 // import logo from './logo.svg';
-import React from "react";
+// import React from "react";
 import './App.css';
 
-function clickme(){
-  alert('test');
-  }
 
 function App(){
   return(
-    <div className="App">
-      <headers>
-        <h4>Just Do IT</h4>
-      </headers>
-      <button onClick={clickme}> Button </button>
+    <div className="app">
+      <header className="app-header">
+        <img className="app-header-logo" src="/pic/1.jpeg" />
+      </header>
+      <div className="app-grid">
+          <div className="tattoo-item">
+            {/* <img src="/pic/3.jpeg" /> */}
+            <img src="/pic/3.jpg" />
+            <h4>rabbit 1</h4>
+          </div>
+          <div className="tattoo-item">
+            <img src="/pic/3.jpg" />
+            <h4>rabbit 2</h4>
+          </div>
+          <div className="tattoo-item">
+            <img src="/pic/3.jpg" />
+            <h4>rabbit 3</h4>
+          </div>
+          <div className="tattoo-item">
+            <img src="/pic/3.jpg" />
+            <h4>rabbit 4</h4>
+          </div>
+      </div>
     </div>
-  );
+  ); 
 }
+
+// function clickme(){
+//   alert('test');
+//   }
+
+// function App(){
+//   return(
+//     <div className="app">
+//       <headers>
+//         <h4>Just Do IT</h4>
+//       </headers>
+//       <button onClick={clickme}> Button </button>
+//     </div>
+//   );
+// }
+
 /*
 function App() {
     const textInput = <input type ="text" />;
