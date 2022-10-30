@@ -1,78 +1,57 @@
-
-import './App.css';
+import { useState } from 'react';
+import React,{ Component } from 'react';
 import AppHeader from './components/AppHeader';
+import AppSearch from './components/AppSearch';
 import TattooItem from './components/TattooItem';
 import TattooPost from './components/TattooPost';
+import tattoos from './data/tattoos';
+import './App.css';
+import Counter from './components/Counter';
+import './components/Counter.css';
 
+function App() {
+  const [selectedTattoo, setSelectedTattoo] = useState(null);
+  const [searchText, setSearchText] = useState('');
 
-function App(){
-  return(
+  function onTattooOpenClick(tattoo) {
+    setSelectedTattoo(tattoo);
+  }
+
+  function onTattooCloseClick() {
+    setSelectedTattoo(null);
+  }
+
+  const tattooItems = tattoos.filter((tattoo) => {
+    return tattoo.title.includes(searchText);
+  }).map((tattoo, index) => {
+    return <TattooItem key={index} tattoo={tattoo} onTattooClick={onTattooOpenClick} />;
+  });
+
+  let tattooPost = null;
+  if (!!selectedTattoo) {
+    tattooPost = <TattooPost tattoo={selectedTattoo} onBgClick={onTattooCloseClick} />;
+  }
+
+  return (
     <div className="app">
       <AppHeader />
-      <div className="app-grid">
-        <TattooItem title="แขน 1" thumbnailUrl="/images/tattoo-01-small.jpg" />
-        <TattooItem title="มือ 1" thumbnailUrl="/images/tattoo-02-small.jpg" />
-        <TattooItem title="คอ 1" thumbnailUrl="/images/tattoo-03-small.jpg" />
-        <TattooItem title="หลัง 1" thumbnailUrl="/images/tattoo-04-small.jpg" />
+      <section className="app-section">
+        <div className="app-container">
+          <AppSearch value={searchText} onValueChange={setSearchText} />
+          <div className="app-grid">
+            {tattooItems}
+          </div>
+        </div>
+      </section>
+      {tattooPost}
+
+      <div className='counter'>
+         <h1>Counter in React</h1>
+         <Counter />
       </div>
-        {/* <TattooPost /> */}
-    </div>
-  ); 
-}
 
-// function clickme(){
-//   alert('test');
-//   }
-
-// function App(){
-//   return(
-//     <div className="app">
-//       <headers>
-//         <h4>Just Do IT</h4>
-//       </headers>
-//       <button onClick={clickme}> Button </button>
-//     </div>
-//   );
-// }
-
-/*
-function App() {
-    const textInput = <input type ="text" />;
-    // const okButton =<button>
-    // สวัสดี
-    // </button>
-    const okButton = (
-      <button> สวัสดี
-      </button>
-    )
-      
-  return (
-    <div className="App">
-      <h2>test</h2>
-      <p>ggg</p>
-      <p>
-        {textInput}
-      </p>
-      <p>
-        {okButton}
-      </p>
-      {<header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> }
     </div>
   );
 }
-*/
 
 export default App;

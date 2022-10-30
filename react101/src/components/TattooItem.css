@@ -1,5 +1,5 @@
-
-.tatoo-item img{
-    display: block;
-    width: 100%;
-  }
+.tattoo-item img {
+  display: block;
+  width: 100%;
+  cursor: zoom-in;
+}
