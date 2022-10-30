@@ -1,33 +1,21 @@
-// import logo from './logo.svg';
-// import React from "react";
+
 import './App.css';
+import AppHeader from './components/AppHeader';
+import TattooItem from './components/TattooItem';
+import TattooPost from './components/TattooPost';
 
 
 function App(){
   return(
     <div className="app">
-      <header className="app-header">
-        <img className="app-header-logo" src="/pic/1.jpeg" />
-      </header>
+      <AppHeader />
       <div className="app-grid">
-          <div className="tattoo-item">
-            {/* <img src="/pic/3.jpeg" /> */}
-            <img src="/pic/3.jpg" />
-            <h4>rabbit 1</h4>
-          </div>
-          <div className="tattoo-item">
-            <img src="/pic/3.jpg" />
-            <h4>rabbit 2</h4>
-          </div>
-          <div className="tattoo-item">
-            <img src="/pic/3.jpg" />
-            <h4>rabbit 3</h4>
-          </div>
-          <div className="tattoo-item">
-            <img src="/pic/3.jpg" />
-            <h4>rabbit 4</h4>
-          </div>
+        <TattooItem title="แขน 1" thumbnailUrl="/images/tattoo-01-small.jpg" />
+        <TattooItem title="มือ 1" thumbnailUrl="/images/tattoo-02-small.jpg" />
+        <TattooItem title="คอ 1" thumbnailUrl="/images/tattoo-03-small.jpg" />
+        <TattooItem title="หลัง 1" thumbnailUrl="/images/tattoo-04-small.jpg" />
       </div>
+        {/* <TattooPost /> */}
     </div>
   ); 
 }
